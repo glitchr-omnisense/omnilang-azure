@@ -1,10 +1,35 @@
 # omnilang/azure
 
-**Reserved, not released yet.**
+[omnisense/omnilang](https://github.com/glitchr-omnisense/omnilang)'s Azure AI Translator, under any
+PHP host.
 
-Azure AI Translator for [omnisense/omnilang](https://github.com/glitchr-omnisense/omnilang): translate a text or a page, whatever the engine.
+- **translate** (text translation v3.0, `/translate`): up to 1,000 texts and 50,000 characters a
+  request, plain or HTML, the source detected (`detectedLanguage`), a Custom Translator category;
+  the languages (`/languages`);
+- **detect** (`/detect`): a language, its score, the alternatives, 100 texts a request;
+- **documents** (synchronous document translation, `2024-05-01`, on the resource's custom domain):
+  docx, pptx, xlsx, html, txt, csv, tsv, xlf, msg, mhtml up to 10 MB, the translated file at once.
 
-The name is kept for the provider package; nothing is released under it yet. A maintainer is
-wanted: see the site's [contribute page](https://glitchr-omnisense.github.io/omnisense/contribute).
+v3.0 stays generally available and is the only version with `/detect` (2026-06-06 has none). It has
+no formality and no glossary but the dynamic dictionary's markup, which a site writes in its text.
 
-MIT licence.
+```php
+use Omnilang\Azure\AzureFactory;
+use Omnilang\Model\TranslationQuery;
+
+$azure = (new AzureFactory($httpClient))->create(['key' => 'env:AZURE_TRANSLATOR_KEY', 'region' => 'westeurope']);
+echo $azure->translate(TranslationQuery::text('Chambre double', 'ja'))[0]->text;
+echo $azure->detect(['Guten Morgen'])[0]->language;
+```
+
+Options: `key` (required, by reference), `region` (a regional or multi-service resource's; none for
+a global one), `base_uri` (`https://api.cognitive.microsofttranslator.com`, or a geography's
+`api-eur.`, `api-nam.`, `api-apc.`), `document_endpoint` (`https://<name>.cognitiveservices.azure.com`:
+documents need it), `category`, `timeout`; `policy`, `usage`.
+
+**Policy** ([policy.json](policy.json), read on 2026-11-10): no limit on requests; characters by
+the hour and by tier (F0, free: 2,000,000 an hour, used evenly), 429 beyond; text translation
+stores no customer data, document translation deletes it once done; commercial use and
+attribution are not stated in the pages read.
+
+See [docs/index.md](docs/index.md). MIT licence.

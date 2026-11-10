@@ -1,0 +1,4 @@
+[
+    {"language": "de", "score": 0.92, "isTranslationSupported": true, "isTransliterationSupported": false, "alternatives": [{"language": "nl", "score": 0.4, "isTranslationSupported": true, "isTransliterationSupported": false}]},
+    {"language": "ja", "score": 1.0, "isTranslationSupported": true, "isTransliterationSupported": true}
+]

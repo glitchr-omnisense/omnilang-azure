@@ -1,0 +1,31 @@
+{
+    "$schema": "https://github.com/glitchr-omnisense/contracts/blob/1.x/resources/usage-policy.schema.json",
+    "provider": "azure",
+    "rateLimits": [],
+    "rights": {
+        "commercial": "unknown",
+        "openSourceRequired": null,
+        "caching": {"permission": "unknown", "maxTtl": null},
+        "storage": "unknown",
+        "redistribution": "unknown",
+        "attribution": {
+            "required": false,
+            "text": null,
+            "url": null,
+            "where": []
+        },
+        "licence": null
+    },
+    "requirements": {
+        "key": true,
+        "userAgent": {"required": false, "pattern": null}
+    },
+    "provenance": {
+        "terms": "https://learn.microsoft.com/en-us/azure/ai-services/translator/service-limits",
+        "policy": "https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/translator/data-privacy-security",
+        "verifiedAt": "2026-11-10",
+        "declaredBy": "maintainer",
+        "contact": null,
+        "notes": "Read on 2026-11-10. Limits: no request count is limited ('There are no limits on concurrent requests'); characters are, per hour and by tier - F0 (free) 2,000,000 an hour, to be used evenly (about 33,300 a minute), S1 and multi-service 40,000,000, S2/C2 40,000,000, S3/C3 120,000,000, S4/C4 200,000,000; a request holds at most 1,000 texts and 50,000 characters (detection: 100 texts); a synchronous document at most 10 MB, 6,000,000 characters a minute. Out of quota: 429; a spent free trial: 403. A call count cannot express characters: a site sets its own limits (policy). Data retention: text translation does not store customer data; document translation stores it while it works, then deletes it for good. Commercial use and attribution: the pages read do not state them, hence unknown and not required. The free tier's monthly amount was not read (only the hourly limits above)."
+    }
+}
