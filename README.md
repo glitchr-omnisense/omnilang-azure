@@ -25,10 +25,13 @@ echo $azure->detect(['Guten Morgen'])[0]->language;
 Options: `key` (required, by reference), `region` (a regional or multi-service resource's; none for
 a global one), `base_uri` (`https://api.cognitive.microsofttranslator.com`, or a geography's
 `api-eur.`, `api-nam.`, `api-apc.`), `document_endpoint` (`https://<name>.cognitiveservices.azure.com`:
-documents need it), `category`, `timeout`; `policy`, `usage`.
+documents need it), `category`, `timeout`; `plan` (the resource's tier: `f0` by default, `s1`,
+`multi-service`, `s2`, `c2`, `s3`, `c3`, `s4`, `c4`); `policy`, `usage`.
 
 **Policy** ([policy.json](policy.json), read on 2026-11-10): no limit on requests; characters by
-the hour and by tier (F0, free: 2,000,000 an hour, used evenly), 429 beyond; text translation
+the hour and by tier, declared as plans and counted per key: F0 (free, the default) 2,000,000,
+S1 and multi-service 40,000,000, S2/C2 40,000,000, S3/C3 120,000,000, S4/C4 200,000,000; 429
+beyond; text translation
 stores no customer data, document translation deletes it once done; commercial use and
 attribution are not stated in the pages read.
 

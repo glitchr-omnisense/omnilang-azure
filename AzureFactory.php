@@ -19,7 +19,9 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
  * api-eur., api-nam., api-apc.), document_endpoint (the resource's custom
  * domain, https://<name>.cognitiveservices.azure.com: documents are
  * translated there only), category (a Custom Translator model's category),
- * timeout (seconds); policy, usage.
+ * timeout (seconds); plan (the resource's pricing tier: f0, the default,
+ * s1, multi-service, s2, c2, s3, c3, s4, c4 - policy.json's plans, each
+ * with its characters an hour); policy, usage.
  */
 final class AzureFactory extends ProviderFactory
 {
