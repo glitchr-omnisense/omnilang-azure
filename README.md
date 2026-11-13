@@ -13,6 +13,13 @@ PHP host.
 v3.0 stays generally available and is the only version with `/detect` (2026-06-06 has none). It has
 no formality and no glossary but the dynamic dictionary's markup, which a site writes in its text.
 
+```sh
+composer require omnisense/omnilang omnilang/azure
+```
+
+It needs an Azure account, a Translator resource and its key and region. Its tests run on recorded answers and need none; omnilang's README has a first call
+on a recorded client.
+
 ```php
 use Omnilang\Azure\AzureFactory;
 use Omnilang\Model\TranslationQuery;
